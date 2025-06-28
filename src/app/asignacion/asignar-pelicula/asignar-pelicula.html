@@ -1,0 +1,30 @@
+<h2>Asignar Película a Sala</h2>
+
+<form [formGroup]="form" (ngSubmit)="asignar()">
+
+  <mat-form-field class="w-100">
+    <mat-label>Película</mat-label>
+    <mat-select formControlName="idPelicula">
+      <mat-option *ngFor="let peli of peliculas" [value]="peli.id">{{ peli.nombre }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Sala disponible</mat-label>
+    <mat-select formControlName="idSalaCine">
+      <mat-option *ngFor="let sala of salasDisponibles" [value]="sala.id">{{ sala.nombre }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Fecha de publicación</mat-label>
+    <input matInput type="date" formControlName="fechaPublicacion">
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Fecha de fin</mat-label>
+    <input matInput type="date" formControlName="fechaFin">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Asignar</button>
+</form>

@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/dashboard"> Dashboard </a>
+            <a mat-list-item routerLink="/peliculas"> Peliculas </a>
+            <a mat-list-item routerLink="/salas"> Salas </a>
+            <a mat-list-item routerLink="/asignacion"> Asignar Pelicula </a>
+            <a mat-list-item (click)="cerrarSesion()"> Cerrar Sesion </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-container>
+        <mat-toolbar color="primary">
+            <span> Cine Apps Pruebas </span>
+        </mat-toolbar>
+
+        <div class="main-content">
+         <router-outlet></router-outlet>
+     </div>
+    </mat-sidenav-container>
+</mat-sidenav-container>

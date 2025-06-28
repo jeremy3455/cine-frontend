@@ -1,0 +1,20 @@
+<h2>{{ editando ? 'Editar' : 'Nueva' }} Película</h2>
+
+<form [formGroup]="form" (ngSubmit)="guardar()">
+  <mat-form-field class="w-100">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" required>
+    <mat-error *ngIf="form.controls['nombre'].invalid">Requerido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Duración (minutos)</mat-label>
+    <input matInput type="number" formControlName="duracion" required>
+    <mat-error *ngIf="form.controls['duracion'].invalid">Mínimo 30 minutos</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    {{ editando ? 'Actualizar' : 'Crear' }}
+  </button>
+  <button mat-button type="button" (click)="router.navigate(['/peliculas'])">Cancelar</button>
+</form>

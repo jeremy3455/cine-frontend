@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Salas de Cine</h2>
+    <button mat-raised-button color="primary" [routerLink]="['/salas/nueva']">+ Nueva Sala</button>
+  </div>
+  
+  <table mat-table [dataSource]="salas" class="mat-elevation-z2" style="width: 100%;">
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let sala"> {{sala.id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let sala"> {{sala.nombre}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let sala"> {{sala.estado}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let sala">
+        <button mat-button color="accent" (click)="editar(sala.id)">Editar</button>
+        <button mat-button color="warn" (click)="eliminar(sala.id)">Eliminar</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="['id', 'nombre', 'estado', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['id', 'nombre', 'estado', 'acciones'];"></tr>
+  </table>
+  
