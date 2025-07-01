@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IAsignacionSala } from '../../asignacion/asignar-pelicula/models/IAsignacionSala';
 
 @Injectable({ providedIn: 'root' })
 export class AsignacionService {
@@ -8,7 +9,7 @@ export class AsignacionService {
 
   constructor(private http: HttpClient) {}
 
-  asignar(datos: any): Observable<any> {
+  asignar(datos: IAsignacionSala): Observable<IAsignacionSala> {
     return this.http.post(this.apiUrl, datos);
   }
 }

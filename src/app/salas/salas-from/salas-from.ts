@@ -13,9 +13,9 @@ import { SalasService } from '../../core/services/salas';
 
 export class SalasFormComponent implements OnInit {
 
-  form!: FormGroup;
+  form: FormGroup = new FormGroup({});
   editando = false;
-  id!: number;
+  id: number = 0;
 
   estados = ['Disponible', 'No disponible'];
 

@@ -14,7 +14,7 @@ import { AsignacionService } from '../../core/services/asignacion';
 
 export class AsignarPeliculaComponent implements OnInit {
 
-  form!: FormGroup;
+  form: FormGroup = new FormGroup({});
   peliculas: any[] = [];
   salasDisponibles: any[] = [];
 

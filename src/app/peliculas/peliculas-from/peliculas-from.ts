@@ -14,9 +14,9 @@ import { PeliculasService } from '../../core/services/peliculas';
 
 export class PeliculasFormComponent implements OnInit {
 
-  form!: FormGroup;
+  form: FormGroup = new FormGroup({});
   editando = false;
-  id!: number;
+  id: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -31,7 +31,9 @@ export class PeliculasFormComponent implements OnInit {
       duracion: [0, [Validators.required, Validators.min(30)]]
     });
 
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    const idParam = this.route.snapshot.paramMap.get('id');
+    this.id = idParam ? Number(idParam) : 0;
+
     if (this.id) {
       this.editando = true;
       this.peliculasService.obtenerPorId(this.id).subscribe(data => {
@@ -43,12 +45,14 @@ export class PeliculasFormComponent implements OnInit {
   guardar() {
     if (this.form.invalid) return;
 
+    const formValue = this.form.value;
+
     if (this.editando) {
-      this.peliculasService.actualizar(this.id, this.form.value).subscribe(() => {
+      this.peliculasService.actualizar(this.id, formValue).subscribe(() => {
         this.router.navigate(['/peliculas']);
       });
     } else {
-      this.peliculasService.crear(this.form.value).subscribe(() => {
+      this.peliculasService.crear(formValue).subscribe(() => {
         this.router.navigate(['/peliculas']);
       });
     }
