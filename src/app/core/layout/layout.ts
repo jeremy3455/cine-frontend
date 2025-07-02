@@ -11,6 +11,11 @@ import { AuthService } from '../service/auth';
 export class LayoutComponent {
   constructor(private authService: AuthService) {}
 
+  
+  logout() {
+    this.authService.logout();
+  }
+
   cerrarSesion() {
     this.authService.logout();
   }

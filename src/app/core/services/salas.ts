@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from '../../../../node_modules/rxjs/dist/types/internal/Observable';
+import { IAsignacionSala } from '../../asignacion/asignar-pelicula/models/IAsignacionSala';
 
 @Injectable({ providedIn: 'root' })
 export class SalasService {
@@ -8,10 +9,10 @@ export class SalasService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerTodas(): Observable<any[]> {
+  obtenerTodas(): Observable<IAsignacionSala> {
     return this.http.get<any[]>(this.apiUrl);
   }
-  obtenerPorId(id: number): Observable<any> {
+  obtenerPorId(id: number): Observable<IAsignacionSala> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 

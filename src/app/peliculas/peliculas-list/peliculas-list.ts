@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../core/services/peliculas';
 import { Router } from '@angular/router'
+import { IPelicula } from '..';
 
 @Component({
   selector: 'app-peliculas-list',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router'
 
 export class PeliculasListComponent implements OnInit {
 
-  peliculas: any[] = [];
+  peliculas: IPelicula[] = [];
 
   constructor(
     private peliculasService: PeliculasService,

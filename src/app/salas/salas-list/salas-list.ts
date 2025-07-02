@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SalasService } from '../../core/services/salas';
 import { Router } from '../../../../node_modules/@angular/router/router_module.d';
+import { ISalasDisponibles } from '../../asignacion/models/ISalasDisponibles';
 
 
 
@@ -13,7 +14,7 @@ import { Router } from '../../../../node_modules/@angular/router/router_module.d
 
 export class SalasListComponent implements OnInit {
 
-  salas: any[] = [];
+  salas: ISalasDisponibles[] = [];
 
   constructor(private salasService: SalasService, private router: Router) {}
 

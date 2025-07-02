@@ -31,13 +31,10 @@ export class PeliculasFormComponent implements OnInit {
       duracion: [0, [Validators.required, Validators.min(30)]]
     });
 
-    const idParam = this.route.snapshot.paramMap.get('id');
-    this.id = idParam ? Number(idParam) : 0;
-
-    if (this.id) {
+    if (this.editando) {
       this.editando = true;
-      this.peliculasService.obtenerPorId(this.id).subscribe(data => {
-        this.form.patchValue(data);
+      this.peliculasService.obtenerPorId(this.id).subscribe(pelicula => {
+        this.form.patchValue(pelicula);
       });
     }
   }

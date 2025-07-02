@@ -3,6 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PeliculasService } from '../../core/services/peliculas';
 import { SalasService } from '../../core/services/salas';
 import { AsignacionService } from '../../core/services/asignacion';
+import { IPelicula } from './models/IPelicula' ;
+import { IAsignacionSala } from './models/IAsignacionSala';
+import { ISalasDisponibles } from './models/ISalasDisponibles';
+
 
 
 @Component({
@@ -15,8 +19,8 @@ import { AsignacionService } from '../../core/services/asignacion';
 export class AsignarPeliculaComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
-  peliculas: any[] = [];
-  salasDisponibles: any[] = [];
+  peliculas: Ipelicula[] = [];
+  salasDisponibles: ISalasDisponibles[] = [];
 
   constructor(
     private fb: FormBuilder,
